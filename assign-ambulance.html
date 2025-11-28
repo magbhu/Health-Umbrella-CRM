@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Ambulance - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <a href="crm-home.html" class="back-link">← Back to Bookings</a>
+
+        <div class="booking-summary-card">
+            <div class="summary-header">
+                <h3>Select an ambulance for booking: <span class="highlight">CRM1763704794200393</span></h3>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <label>Patient</label>
+                    <p>Magesh</p>
+                </div>
+                <div class="summary-item">
+                    <label>Booking ID</label>
+                    <p>CRM1763704794200393</p>
+                </div>
+                <div class="summary-item full-width">
+                    <label>Pickup Address</label>
+                    <p>East Palm, Fairmont Gardens, Sathya Nagar, Manapakkam, Chennai, Tamil Nadu 600089, India</p>
+                </div>
+                <div class="summary-item full-width">
+                    <label>Destination</label>
+                    <p>Old, No 54, 72, Nelson Manickam Rd, Collectorate Colony, Aminjikarai, Chennai, Tamil Nadu 600029, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h3>Available Ambulances (6 of 7)</h3>
+            <p style="color: #666; font-size: 0.9rem;">Select an ambulance to assign to this booking</p>
+        </div>
+
+        <div class="crm-grid">
+            
+            <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB001</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Advanced</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-AB-1234</span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>12.8980, 80.1095</span>
+                    </div>
+                    <div class="info-row">
+                        <i>👮</i> <span>No driver assigned</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-assign" onclick="confirmAssignment('AMB001')">Assign Ambulance</button>
+                </div>
+            </div>
+
+            <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB002</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Basic</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-CD-5678</span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>13.0661, 80.2588</span>
+                    </div>
+                    <div class="info-row">
+                        <i>👮</i> <span>No driver assigned</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-assign" onclick="confirmAssignment('AMB002')">Assign Ambulance</button>
+                </div>
+            </div>
+
+            <div class="crm-card high-priority">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB003</span>
+                    <span class="badge critical">Critical Care</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Critical Care</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-EF-9012</span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>12.8904, 80.1168</span>
+                    </div>
+                    <div class="info-row">
+                        <i>👮</i> <span>No driver assigned</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-assign" onclick="confirmAssignment('AMB003')">Assign Ambulance</button>
+                </div>
+            </div>
+
+            <div class="crm-card" style="opacity: 0.7; background: #f9f9f9;">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB004</span>
+                    <span class="badge busy">At Hospital</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Advanced</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-GH-3456</span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>12.8894, 80.1163</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-disabled" disabled>Not Available</button>
+                </div>
+            </div>
+
+            <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB005</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Basic</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-IJ-7890</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-assign" onclick="confirmAssignment('AMB005')">Assign Ambulance</button>
+                </div>
+            </div>
+
+             <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB006</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Large</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span>TN-01-LG-0002</span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>13.0661, 80.2588</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-assign" onclick="confirmAssignment('AMB006')">Assign Ambulance</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="layout.js"></script>
+    <script>
+        function confirmAssignment(ambId) {
+            alert("Success! Booking assigned to " + ambId);
+            window.location.href = 'crm-home.html';
+        }
+    </script>
+</body>
+</html>

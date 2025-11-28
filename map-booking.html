@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Booking - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <!-- Back Navigation -->
+        <a href="crm-home.html" class="back-link">← Back to Fleet</a>
+
+        <!-- Page Header -->
+        <div class="mb-page-header">
+            <h3>Select Booking for Ambulance</h3>
+            <p class="mb-subtitle">Assigning bookings to <span class="highlight">AMB001</span></p>
+        </div>
+
+        <div class="mb-list-header">
+            <h4>Available Bookings (13)</h4>
+            <p>Click on a booking to assign it to this ambulance</p>
+        </div>
+
+        <div class="booking-selection-list">
+
+            <!-- Booking Item 1 (Active Selection) -->
+            <div class="booking-select-card active-selection">
+                <div class="bsc-header">
+                    <span class="bsc-id">ID: CRM1763704794200393</span>
+                    <span class="badge confirmed">confirmed</span>
+                </div>
+                
+                <div class="bsc-body">
+                    <div class="bsc-row">
+                        <label>Patient</label>
+                        <p>Magesh</p>
+                    </div>
+
+                    <div class="bsc-location">
+                        <div class="bsc-loc-item">
+                            <i class="fa-solid fa-circle" style="color: #00c853; font-size: 0.8rem; margin-top: 5px;"></i>
+                            <div>
+                                <label>Pickup</label>
+                                <p>East Palm, Fairmont Gardens, Sathya Nagar, Manapakkam, Chennai, Tamil Nadu 600089, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bsc-loc-item">
+                            <i class="fa-solid fa-location-dot" style="color: #d32f2f; font-size: 1rem;"></i>
+                            <div>
+                                <label>Destination</label>
+                                <p>Old, No 54, 72, Nelson Manickam Rd, Collectorate Colony, Aminjikarai, Chennai, Tamil Nadu 600029, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bsc-footer">
+                    <button class="btn-assign-lg" onclick="window.location.href='crm-home.html'">Assign</button>
+                    <button class="btn-cancel-lg" onclick="window.location.href='crm-home.html'">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Booking Item 2 (Standard) -->
+            <div class="booking-select-card">
+                <div class="bsc-header">
+                    <span class="bsc-id">ID: CDM1763633047635300</span>
+                    <span class="badge confirmed">confirm 2</span>
+                </div>
+                <div class="bsc-body">
+                     <div class="bsc-row">
+                        <label>Patient</label>
+                        <p>Priya Sharma</p>
+                    </div>
+                    <div class="bsc-location-summary">
+                        <p><i class="fa-solid fa-map-pin"></i> Anna Nagar Tower to Apollo Greams Rd</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Booking Item 3 (Pending) -->
+             <div class="booking-select-card">
+                <div class="bsc-header">
+                    <span class="bsc-id">ID: CRM188299301120011</span>
+                    <span class="badge warning">Pending</span>
+                </div>
+                <div class="bsc-body">
+                     <div class="bsc-row">
+                        <label>Patient</label>
+                        <p>Rahul K.</p>
+                    </div>
+                     <div class="bsc-location-summary">
+                        <p><i class="fa-solid fa-map-pin"></i> T-Nagar to SIMS Hospital</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Layout Script -->
+    <script src="layout.js"></script>
+</body>
+</html>

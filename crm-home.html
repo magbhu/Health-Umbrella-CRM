@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        
+        <!-- Search & Filter Area -->
+        <input type="text" class="search-bar" placeholder="Search by ID, name, or vehicle number...">
+
+        <!-- Tabs Switcher -->
+        <div class="tab-header">
+            <button id="bookings-btn" class="tab-btn active" onclick="switchTab('bookings')">Bookings (22)</button>
+            <button id="fleet-btn" class="tab-btn" onclick="switchTab('fleet')">Ambulance Fleet (7)</button>
+        </div>
+
+        <!-- TAB 1: BOOKING MANAGEMENT CONTENT -->
+        <div id="bookings-content" class="crm-grid tab-content">
+            
+            <!-- Booking Card 1 (High Priority - Dispatched) -->
+            <div class="crm-card high-priority">
+                <div class="card-header">
+                    <span class="card-id">#CRM...599</span>
+                    <span class="badge dispatched">Dispatched</span>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <i>👤</i> <span><strong>Magesh</strong> (919841723056)</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🟢</i> <span class="loc-text">#70, Ellaiamman Koil St, Vannanthurai, Adyar</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🔴</i> <span class="loc-text">MIOT International, Manapakkam</span>
+                    </div>
+                    <div class="info-row">
+                        <i>⚡</i> <span style="color:var(--danger); font-weight:700;">High Priority - Heart</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <!-- Link to Tracking Page -->
+                    <button class="btn-action btn-primary" onclick="window.location.href='track-booking.html'">Track</button>
+                    <!-- Link to Details Page -->
+                    <button class="btn-action btn-outline" onclick="window.location.href='booking-details.html'">Details</button>
+                </div>
+            </div>
+
+            <!-- Booking Card 2 (Confirmed - Needs Assignment) -->
+            <div class="crm-card high-priority">
+                <div class="card-header">
+                    <span class="card-id">#CRM...393</span>
+                    <span class="badge confirmed">Confirmed</span>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <i>👤</i> <span><strong>Magesh</strong> (919841723056)</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🟢</i> <span class="loc-text">East Palm, Fairmont Gardens, Manapakkam</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🔴</i> <span class="loc-text">Apollo Hospitals, Nelson Manickam Rd</span>
+                    </div>
+                    <div class="info-row">
+                        <i>⚡</i> <span style="color:var(--danger); font-weight:700;">High Priority - Medical</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <!-- Link to Assign Page -->
+                    <button class="btn-action btn-primary" onclick="window.location.href='assign-ambulance.html'">Assign Driver</button>
+                    <button class="btn-action btn-outline" onclick="window.location.href='booking-details.html'">Details</button>
+                </div>
+            </div>
+
+            <!-- Booking Card 3 (Medium Priority) -->
+            <div class="crm-card medium-priority">
+                <div class="card-header">
+                    <span class="card-id">#CRM...865</span>
+                    <span class="badge confirmed">Confirmed</span>
+                </div>
+                <div class="card-body">
+                    <div class="info-row">
+                        <i>👤</i> <span><strong>Arthi</strong> (919841723056)</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🟢</i> <span class="loc-text">Sairam Flats, Valasaravakkam</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🔴</i> <span class="loc-text">Anna Nagar West</span>
+                    </div>
+                    <div class="info-row">
+                        <i>⚠️</i> <span>Medium Priority - Medical</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-primary" onclick="window.location.href='assign-ambulance.html'">Assign Driver</button>
+                    <button class="btn-action btn-outline" onclick="window.location.href='booking-details.html'">Details</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB 2: AMBULANCE FLEET CONTENT -->
+        <div id="fleet-content" class="crm-grid tab-content" style="display: none;">
+            
+            <!-- Ambulance 1 -->
+            <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB001</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Advanced</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span><strong>TN-01-AB-1234</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>12.8980, 80.1095</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🕒</i> <span>Updated: 11:31:33 AM</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <!-- Linked to Live GPS Page -->
+                    <button class="btn-action btn-primary" onclick="window.location.href='live-gps.html'">Live GPS</button>
+                    <!-- Link to Map Booking Page -->
+                    <button class="btn-action btn-outline" onclick="window.location.href='map-booking.html'">Map to Booking</button>
+                </div>
+            </div>
+
+            <!-- Ambulance 2 -->
+            <div class="crm-card">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB002</span>
+                    <span class="badge available">Available</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Basic</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span><strong>TN-01-CD-5678</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>13.0661, 80.2588</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🕒</i> <span>Updated: 11:31:33 AM</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <!-- Linked to Live GPS Page -->
+                    <button class="btn-action btn-primary" onclick="window.location.href='live-gps.html'">Live GPS</button>
+                    <button class="btn-action btn-outline" onclick="window.location.href='map-booking.html'">Map to Booking</button>
+                </div>
+            </div>
+
+             <!-- Ambulance 3 -->
+             <div class="crm-card high-priority">
+                <div class="card-header">
+                    <span class="card-id">🚑 AMB003</span>
+                    <span class="badge critical">Critical Care</span>
+                </div>
+                <div class="card-body">
+                    <p class="amb-type">Type: <strong>Critical Care</strong></p>
+                    <div class="info-row">
+                        <i>🔢</i> <span><strong>TN-01-EF-9012</strong></span>
+                    </div>
+                    <div class="info-row">
+                        <i>📍</i> <span>12.8904, 80.1168</span>
+                    </div>
+                    <div class="info-row">
+                        <i>🕒</i> <span>Updated: 8:28:52 AM</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <!-- Linked to Live GPS Page -->
+                    <button class="btn-action btn-primary" onclick="window.location.href='live-gps.html'">Live GPS</button>
+                    <button class="btn-action btn-outline" onclick="window.location.href='map-booking.html'">Map to Booking</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Script to load components -->
+    <script src="layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Map - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container full-width-container">
+        
+        <!-- Top Control Bar -->
+        <div class="map-control-bar">
+            <div class="map-title-group">
+                <h3><i class="fa-solid fa-map-location-dot"></i> Ambulance Booking Locations</h3>
+            </div>
+            
+            <div class="map-actions-right">
+                <span class="active-count">7 Active Bookings</span>
+                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i> Refresh</button>
+            </div>
+        </div>
+
+        <!-- Legend Bar -->
+        <div class="map-legend-bar">
+            <div class="legend-item"><span class="dot red"></span> Current Ambulance Location</div>
+            <div class="legend-item"><span class="dot blue"></span> Latest GPS Location</div>
+            <div class="legend-item"><span class="dot orange"></span> Pickup Location</div>
+            <div class="legend-item"><span class="dot green"></span> Dropoff Location</div>
+        </div>
+
+        <!-- Main Map Layout -->
+        <div class="booking-map-layout">
+            
+            <!-- Map Area -->
+            <div class="map-canvas-container">
+                <!-- Map Type Controls (Top Left) -->
+                <div class="map-type-controls">
+                    <button class="active">Map</button>
+                    <button>Satellite</button>
+                </div>
+
+                <!-- Full Screen Map Image -->
+                <div class="map-viewport">
+                    <img src="assets/map-pointer.jpg" onerror="this.src='https://maps.googleapis.com/maps/api/staticmap?center=Chennai,TamilNadu&zoom=12&size=1000x600&maptype=roadmap&sensor=false&key='" alt="Ambulance Map" class="interactive-map-img">
+                    
+                    <!-- Simulated Clickable Marker (For Demo) -->
+                    <div class="map-marker-click-target" onclick="toggleDetailsPanel(true)" title="Click to view details"></div>
+
+                    <!-- Popup (Hidden by default, shown on click) -->
+                    <div id="map-popup" class="map-info-window" style="display: none;">
+                        <div class="popup-header">
+                            <h4><i class="fa-solid fa-truck-medical"></i> AMB006</h4>
+                            <i class="fa-solid fa-xmark close-popup" onclick="toggleDetailsPanel(false)"></i>
+                        </div>
+                        <div class="popup-body">
+                            <p><strong>License:</strong> TN-01-LG-0002</p>
+                            <p><strong>Status:</strong> <span class="text-success">AVAILABLE</span></p>
+                            <p><strong>Location Type:</strong> Current Position</p>
+                            <p><strong>Patient:</strong> Arthi</p>
+                            <p><strong>Emergency:</strong> medical (high)</p>
+                            <p class="tiny-id">Booking ID: CRM1763627609901865</p>
+                        </div>
+                        <div class="popup-arrow"></div>
+                    </div>
+
+                    <!-- Scroll Warning -->
+                    <div class="map-scroll-badge">
+                        <span>←→ Scroll horizontally to explore map</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Details Panel (Collapsible) -->
+            <div id="booking-details-panel" class="map-sidebar-panel">
+                
+                <!-- Initial State (No Selection) -->
+                <div id="no-selection-view">
+                    <div class="panel-header">
+                        <h4><i class="fa-solid fa-file-contract"></i> Booking Details</h4>
+                    </div>
+                    <div class="empty-state">
+                        <p>Click on a marker to view booking details</p>
+                        
+                        <div class="summary-box">
+                            <h5><i class="fa-solid fa-chart-simple"></i> Summary</h5>
+                            <div class="summary-row"><span>Total Bookings:</span> <strong>7</strong></div>
+                            <div class="summary-row"><span>Active Tracking:</span> <strong>6</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active State (Selection Made) -->
+                <div id="active-selection-view" style="display: none;">
+                    <div class="panel-header">
+                        <h4><i class="fa-solid fa-file-contract"></i> Booking Details</h4>
+                        <i class="fa-solid fa-xmark close-panel-mobile" onclick="toggleDetailsPanel(false)"></i>
+                    </div>
+                    
+                    <div class="panel-content">
+                        <div class="driver-header">
+                            <h3 class="text-danger"><i class="fa-solid fa-truck-medical"></i> AMB006</h3>
+                        </div>
+
+                        <div class="detail-group">
+                            <label>Booking ID:</label>
+                            <p>CRM1763627609901865</p>
+                        </div>
+                        <div class="detail-group">
+                            <label>Patient:</label>
+                            <p>Arthi</p>
+                        </div>
+                        <div class="detail-group">
+                            <label>Phone:</label>
+                            <p class="link-blue">919841723056</p>
+                        </div>
+                        <div class="detail-group">
+                            <label>Emergency Type:</label>
+                            <p>medical</p>
+                        </div>
+                        <div class="detail-group">
+                            <label>Priority:</label>
+                            <p>high</p>
+                        </div>
+                        <div class="detail-group">
+                            <label>Status:</label>
+                            <span class="status-pill dispatched">DISPATCHED</span>
+                        </div>
+
+                        <div class="divider-line"></div>
+
+                        <div class="detail-group">
+                            <label><span class="dot orange small"></span> Pickup Location</label>
+                            <p>N/A</p>
+                        </div>
+                        <div class="detail-group">
+                            <label><span class="dot green small"></span> Dropoff Location</label>
+                            <p>N/A</p>
+                        </div>
+
+                        <div class="divider-line"></div>
+                        
+                        <p class="timestamp">Created: 11/20/2025 5:55:04 PM</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Layout Script -->
+    <script src="layout.js"></script>
+    
+    <!-- Page Specific Script -->
+    <script>
+        function toggleDetailsPanel(show) {
+            const noSel = document.getElementById('no-selection-view');
+            const activeSel = document.getElementById('active-selection-view');
+            const popup = document.getElementById('map-popup');
+
+            if (show) {
+                noSel.style.display = 'none';
+                activeSel.style.display = 'block';
+                popup.style.display = 'block';
+            } else {
+                noSel.style.display = 'block';
+                activeSel.style.display = 'none';
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

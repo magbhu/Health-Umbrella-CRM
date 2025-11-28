@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Center - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <!-- Page Title Header -->
+        <div class="comm-page-header">
+            <div class="comm-icon-box"><i class="fa-solid fa-satellite-dish"></i></div>
+            <div class="comm-title-text">
+                <h2>Communication Center</h2>
+                <p>Send SMS, Email, and WhatsApp messages to service providers and users</p>
+            </div>
+        </div>
+
+        <div class="comm-card">
+            
+            <!-- SECTION 1: RECIPIENT INFORMATION -->
+            <h4 class="comm-section-title"><i class="fa-solid fa-user"></i> Recipient Information</h4>
+            
+            <div class="form-group">
+                <label class="comm-label"><i class="fa-regular fa-envelope"></i> Email Address</label>
+                <input type="email" class="comm-input" placeholder="Enter email address (required for Email)">
+                <span class="comm-help-text">Used for Email delivery</span>
+            </div>
+
+            <div class="form-group">
+                <label class="comm-label"><i class="fa-regular fa-comment-dots"></i> SMS Phone Number</label>
+                <input type="tel" class="comm-input" placeholder="Enter phone number with country code (e.g., +911234567890)">
+                <span class="comm-help-text">Used for SMS delivery (include country code)</span>
+            </div>
+
+            <div class="form-group">
+                <label class="comm-label"><i class="fa-brands fa-whatsapp"></i> WhatsApp Number</label>
+                <div class="input-with-icon">
+                    <input type="tel" class="comm-input" placeholder="Enter WhatsApp number with country code (e.g., +911234567890)">
+                    <i class="fa-regular fa-copy copy-icon"></i>
+                </div>
+                <span class="comm-help-text">Used for WhatsApp delivery (can be same as SMS number)</span>
+            </div>
+
+            <div class="comm-options-row">
+                <label class="checkbox-label">
+                    <input type="checkbox"> Use Same Number for SMS & WhatsApp
+                </label>
+                <a href="#" class="clear-link"><i class="fa-solid fa-eraser"></i> Clear All</a>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <!-- SECTION 2: SELECT CHANNELS -->
+            <h4 class="comm-section-title"><i class="fa-solid fa-share-nodes"></i> Select Channels</h4>
+            <div class="channel-grid">
+                <!-- SMS Channel -->
+                <label class="channel-box">
+                    <input type="checkbox" checked>
+                    <div class="channel-content">
+                        <span class="ch-name"><i class="fa-regular fa-comment-dots"></i> SMS</span>
+                        <span class="ch-desc">Text message</span>
+                    </div>
+                </label>
+
+                <!-- Email Channel -->
+                <label class="channel-box">
+                    <input type="checkbox">
+                    <div class="channel-content">
+                        <span class="ch-name"><i class="fa-regular fa-envelope"></i> Email</span>
+                        <span class="ch-desc">Email message + subject</span>
+                    </div>
+                </label>
+
+                <!-- WhatsApp Channel -->
+                <label class="channel-box">
+                    <input type="checkbox">
+                    <div class="channel-content">
+                        <span class="ch-name"><i class="fa-brands fa-whatsapp"></i> WhatsApp</span>
+                        <span class="ch-desc">WhatsApp message</span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- SECTION 3: MESSAGE TEMPLATE -->
+            <h4 class="comm-section-title mt-20"><i class="fa-regular fa-file-lines"></i> Message Template</h4>
+            <div class="form-group">
+                <select class="comm-select">
+                    <option>Booking Confirmation (SMS)</option>
+                    <option>Driver Assigned</option>
+                    <option>Trip Started</option>
+                    <option>Payment Receipt</option>
+                </select>
+            </div>
+
+            <!-- Info Box -->
+            <div class="comm-info-box">
+                <p><strong><i class="fa-solid fa-lightbulb"></i> All templates work with any selected channel!</strong></p>
+                <ul>
+                    <li>SMS: Best for short, immediate updates</li>
+                    <li>Email: Perfect for detailed information with formatting</li>
+                    <li>WhatsApp: Great for rich messages with emojis</li>
+                </ul>
+                <label class="checkbox-label small-text">
+                    <input type="checkbox" checked> Content adapts automatically based on your channel selection
+                </label>
+            </div>
+
+            <!-- SECTION 4: MESSAGE CONTENT -->
+            <h4 class="comm-section-title mt-20"><i class="fa-regular fa-pen-to-square"></i> Message Content</h4>
+            <div class="form-group">
+                <div class="textarea-wrapper">
+                    <textarea class="comm-textarea" rows="5">Your booking is confirmed. OTP: {otp}</textarea>
+                    <i class="fa-solid fa-pen resize-icon"></i>
+                </div>
+                <span class="comm-help-text icon-text"><i class="fa-solid fa-info-circle"></i> Use placeholders: {name}, {amount}, {otp}, {live_url}, {booking_id}, {eta}</span>
+            </div>
+
+            <!-- SECTION 5: PREVIEW -->
+            <div class="preview-box">
+                <div class="preview-header"><i class="fa-regular fa-eye"></i> Message Preview</div>
+                <div class="preview-content">
+                    Your booking is confirmed. OTP: {otp}
+                </div>
+            </div>
+
+            <!-- ACTION BUTTON -->
+            <button class="btn-send-full">
+                <i class="fa-regular fa-paper-plane"></i> Send Message
+            </button>
+
+        </div>
+    </div>
+
+    <script src="layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live GPS - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <!-- Back Navigation -->
+        <a href="crm-home.html" class="back-link">← Back to Fleet</a>
+
+        <!-- Top Status Grid -->
+        <div class="gps-dashboard-grid">
+            
+            <!-- Card 1: Ambulance Info -->
+            <div class="gps-card">
+                <div class="gps-card-header">
+                    <i class="fa-solid fa-truck-medical icon-purple"></i>
+                    <h4>Ambulance</h4>
+                </div>
+                <div class="gps-card-body centered">
+                    <h2>AMB005</h2>
+                    <p class="sub-text">TN-01-IJ-7890</p>
+                    <span class="pill-badge green-light">AVAILABLE</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Emergency Details -->
+            <div class="gps-card">
+                <div class="gps-card-header">
+                    <i class="fa-solid fa-clipboard-list icon-orange"></i>
+                    <h4>Emergency Details</h4>
+                </div>
+                <div class="gps-card-body">
+                    <div class="detail-line">
+                        <span class="label">Patient:</span>
+                        <span class="value">Jane Smith</span>
+                    </div>
+                    <div class="detail-line">
+                        <span class="label">Type:</span>
+                        <span class="value">medical</span>
+                    </div>
+                    <div class="detail-line">
+                        <span class="label">Priority:</span>
+                        <span class="value">critical</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Journey Details -->
+            <div class="gps-card">
+                <div class="gps-card-header">
+                    <i class="fa-solid fa-map-location-dot icon-blue"></i>
+                    <h4>Journey Details</h4>
+                </div>
+                <div class="gps-card-body">
+                    <div class="detail-line">
+                        <span class="label">Booking ID:</span>
+                        <span class="value small">CRM1763440668334661</span>
+                    </div>
+                    <div class="detail-line">
+                        <span class="label">Status:</span>
+                        <span class="value highlight-blue">DISPATCHED</span>
+                    </div>
+                    <div class="detail-line">
+                        <span class="label">Created:</span>
+                        <span class="value text-muted">27/11/2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Route Progress -->
+            <div class="gps-card">
+                <div class="gps-card-header">
+                    <i class="fa-solid fa-route icon-teal"></i>
+                    <h4>Route Progress</h4>
+                </div>
+                <div class="gps-card-body">
+                    <div class="route-timeline">
+                        <!-- Step 1 -->
+                        <div class="rt-item">
+                            <div class="rt-icon red"><i class="fa-solid fa-truck-medical"></i></div>
+                            <div class="rt-content">
+                                <span class="rt-title">Current Position</span>
+                                <span class="rt-sub">AMB005</span>
+                                <span class="rt-badge red">AVAILABLE</span>
+                            </div>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="rt-arrow">↓</div>
+                        <!-- Step 2 -->
+                        <div class="rt-item">
+                            <div class="rt-icon orange"><i class="fa-solid fa-user-injured"></i></div>
+                            <div class="rt-content">
+                                <span class="rt-title">Emergency Pickup</span>
+                                <span class="rt-sub">Jane Smith</span>
+                                <span class="rt-badge orange">MEDICAL</span>
+                            </div>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="rt-arrow">↓</div>
+                        <!-- Step 3 -->
+                        <div class="rt-item">
+                            <div class="rt-icon green"><i class="fa-solid fa-hospital"></i></div>
+                            <div class="rt-content">
+                                <span class="rt-title">Hospital Destination</span>
+                                <span class="rt-sub">Final Destination</span>
+                                <span class="rt-badge green">EN ROUTE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Map Section (Matches the visual design in image) -->
+        <div class="gps-map-wrapper">
+            
+            <!-- Map Controls Top Left -->
+            <div class="map-mode-controls">
+                <button class="active">Map</button>
+                <button>Satellite</button>
+            </div>
+
+            <!-- Scroll Bars (Visual Simulation) -->
+            <div class="map-scroll-h">
+                <div class="scroll-arrow left">◀</div>
+                <div class="scroll-bar-track"><div class="scroll-bar-thumb"></div></div>
+                <div class="scroll-arrow right">▶</div>
+            </div>
+            
+            <div class="map-scroll-v">
+                <div class="scroll-arrow up">▲</div>
+                <div class="scroll-bar-track-v"><div class="scroll-bar-thumb-v"></div></div>
+                <div class="scroll-arrow down">▼</div>
+            </div>
+
+            <!-- Map Image -->
+            <div class="map-view-container">
+                <img src="assets/mapholder.jpg" onerror="this.src='https://maps.googleapis.com/maps/api/staticmap?center=Chennai,TamilNadu&zoom=14&size=800x400&maptype=roadmap&sensor=false&key='" alt="Live Map" class="full-width-map">
+                
+                <!-- Floating Info Badge -->
+                <div class="map-floating-badge">
+                    <span>←→ Scroll horizontally to explore map</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="layout.js"></script>
+</body>
+</html>

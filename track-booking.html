@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Booking - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <!-- FontAwesome for the specific icons (X and Pin) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <!-- Back Navigation -->
+        <a href="crm-home.html" class="back-link">← Back to Dashboard</a>
+
+        <div class="track-card">
+            
+            <!-- SECTION 1: CUSTOMER & DRIVER HEADER -->
+            <div class="track-header">
+                <div class="profile-left">
+                    <img src="assets/driver.png" onerror="this.src='https://via.placeholder.com/60?text=User'" alt="Customer" class="track-profile-img">
+                    <div class="profile-text">
+                        <h3>Selva Kumar</h3>
+                        <span class="id-tag">ID: AK0215 • Booking #JHDX44</span>
+                    </div>
+                </div>
+                <div class="profile-right">
+                    <button class="btn-call" onclick="alert('Calling Customer...')">
+                        <i class="fa-solid fa-phone"></i> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- SECTION 2: TRIP ROUTE CARD -->
+            <div class="route-card">
+                
+                <!-- Pickup Row -->
+                <div class="route-row">
+                    <div class="icon-column">
+                        <div class="dot green"></div>
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="text-column">
+                        <label>PICKUP</label>
+                        <p>Sai ram apartments, 96, Arcot Rd, Venkata Subramanya Nagar...</p>
+                    </div>
+                    <div class="action-column">
+                        <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                </div>
+
+                <!-- Dropoff Row -->
+                <div class="route-row">
+                    <div class="icon-column">
+                        <div class="dot red"></div>
+                    </div>
+                    <div class="text-column">
+                        <label>DROPOFF</label>
+                        <p>MIOT International, Manapakkam, Chennai, Tamil Nadu</p>
+                    </div>
+                    <div class="action-column">
+                        <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECTION 3: MAP IMAGE -->
+            <div class="map-image-container">
+                <!-- Displays the uploaded scr3.jpg -->
+                <img src="assets/mapholder.jpg" onerror="this.src='https://via.placeholder.com/600x300?text=Map+Image+Not+Found'" alt="Live Tracking Map" class="static-map">
+                
+                <!-- Floating Re-center Button -->
+                <button class="map-float-btn" onclick="alert('Recenter Map')"><i class="fa-solid fa-arrows-rotate"></i></button>
+                <div class="map-zoom-controls">
+                    <button onclick="alert('Zoom In')">+</button>
+                    <button onclick="alert('Zoom Out')">-</button>
+                </div>
+            </div>
+
+            <div class="divider-line"></div>
+
+            <!-- SECTION 4: BOOKING DETAILS -->
+            <div class="details-grid">
+                <div class="detail-block">
+                    <h4>Booking Date & Time</h4>
+                    <div class="detail-row">
+                        <span class="d-label">Date:</span>
+                        <span class="d-val">21/03/2025</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="d-label">Time:</span>
+                        <span class="d-val">05:30 PM</span>
+                    </div>
+                </div>
+                <div class="detail-block">
+                    <h4>Driver Details</h4>
+                    <div class="detail-row">
+                        <span class="d-label">Name:</span>
+                        <span class="d-val">Muthu</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="d-label">Vehicle:</span>
+                        <span class="d-val">TN-01-AB-1234</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Layout Script -->
+    <script src="layout.js"></script>
+</body>
+</html>

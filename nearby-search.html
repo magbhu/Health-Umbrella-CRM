@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Search - Health Umbrella</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Header -->
+    <div id="header-container"></div>
+
+    <!-- Dynamic Navigation -->
+    <div id="navbar-container"></div>
+
+    <div class="main-container">
+        
+        <!-- Back Navigation -->
+        <a href="crm-home.html" class="back-link">← Back to Dashboard</a>
+
+        <!-- Filter Controls -->
+        <div class="search-filters-row">
+            <div class="filter-group">
+                <label>Filter by Status</label>
+                <select class="comm-select">
+                    <option>Available</option>
+                    <option>Busy</option>
+                    <option>Maintenance</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Filter by Type</label>
+                <select class="comm-select">
+                    <option>BLS (Basic Life Support)</option>
+                    <option>ALS (Advanced Life Support)</option>
+                    <option>Critical Care</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tab Switcher -->
+        <div class="search-tabs">
+            <button class="search-tab active" onclick="switchSearchTab('ambulances')">
+                <i class="fa-solid fa-truck-medical"></i> Nearby Ambulances
+            </button>
+            <button class="search-tab" onclick="switchSearchTab('hospitals')">
+                <i class="fa-solid fa-hospital"></i> Nearby Hospitals
+            </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="location-search-bar">
+            <!-- Updated Default Value -->
+            <input type="text" value="Sairam Flats, 95 Arcot Road, Valsarvakkam , Chennai" class="loc-input">
+            <button class="btn-find"><i class="fa-solid fa-location-crosshairs"></i> Find</button>
+        </div>
+
+        <!-- AMBULANCE GRID (Default Visible) -->
+        <div id="ambulances-grid" class="nearby-grid search-content">
+            
+            <!-- Card 1 -->
+            <div class="nearby-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>AMB002</h3>
+                        <p>TN-01-CD-5678</p>
+                        <span class="sub-type">Basic Life Support</span>
+                    </div>
+                    <span class="badge available">AVAILABLE</span>
+                </div>
+                
+                <div class="nc-section">
+                    <h5 class="nc-heading">DRIVER & CONTACT</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">DRIVER</span>
+                        <span class="nc-val">Driver Assigned</span>
+                    </div>
+                    <div class="nc-row">
+                        <span class="nc-label">PHONE</span>
+                        <span class="nc-val link-blue">+91 99999 99999</span>
+                    </div>
+                </div>
+
+                <div class="nc-section">
+                    <h5 class="nc-heading">LOCATION & STATUS</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">CURRENT LOCATION</span>
+                        <span class="nc-val text-right">13.06613133,<br>80.25883196</span>
+                    </div>
+                </div>
+
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">VEHICLE METRICS</h5>
+                    <div class="metric-row">
+                        <div class="metric-info">
+                            <span class="nc-label">FUEL LEVEL</span>
+                            <span class="metric-val orange">64%</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill orange" style="width: 64%"></div></div>
+                    </div>
+                    <div class="nc-row mt-10">
+                        <span class="nc-label">EQUIPMENT</span>
+                        <span class="equip-badge">FULLY EQUIPPED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="nearby-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>AMB003</h3>
+                        <p>TN-01-EF-9012</p>
+                        <span class="sub-type">Critical Care Unit</span>
+                    </div>
+                    <span class="badge available">AVAILABLE</span>
+                </div>
+                
+                <div class="nc-section">
+                    <h5 class="nc-heading">DRIVER & CONTACT</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">DRIVER</span>
+                        <span class="nc-val">Driver Assigned</span>
+                    </div>
+                    <div class="nc-row">
+                        <span class="nc-label">PHONE</span>
+                        <span class="nc-val link-blue">+91 99999 99999</span>
+                    </div>
+                </div>
+
+                <div class="nc-section">
+                    <h5 class="nc-heading">LOCATION & STATUS</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">CURRENT LOCATION</span>
+                        <span class="nc-val text-right">12.89039950,<br>80.11677200</span>
+                    </div>
+                </div>
+
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">VEHICLE METRICS</h5>
+                    <div class="metric-row">
+                        <div class="metric-info">
+                            <span class="nc-label">FUEL LEVEL</span>
+                            <span class="metric-val green">90%</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill green" style="width: 90%"></div></div>
+                    </div>
+                    <div class="nc-row mt-10">
+                        <span class="nc-label">EQUIPMENT</span>
+                        <span class="equip-badge">FULLY EQUIPPED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="nearby-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>AMB005</h3>
+                        <p>TN-01-IJ-7890</p>
+                        <span class="sub-type">Basic Life Support</span>
+                    </div>
+                    <span class="badge available">AVAILABLE</span>
+                </div>
+                <div class="nc-section">
+                    <h5 class="nc-heading">DRIVER & CONTACT</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">DRIVER</span>
+                        <span class="nc-val">Driver Assigned</span>
+                    </div>
+                    <div class="nc-row">
+                        <span class="nc-label">PHONE</span>
+                        <span class="nc-val link-blue">+91 99999 99999</span>
+                    </div>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">VEHICLE METRICS</h5>
+                    <div class="metric-row">
+                        <div class="metric-info">
+                            <span class="nc-label">FUEL LEVEL</span>
+                            <span class="metric-val green">74%</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill green" style="width: 74%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="nearby-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>AMB006</h3>
+                        <p>TN-01-LG-0002</p>
+                        <span class="sub-type">Large</span>
+                    </div>
+                    <span class="badge available">AVAILABLE</span>
+                </div>
+                <div class="nc-section">
+                    <h5 class="nc-heading">DRIVER & CONTACT</h5>
+                    <div class="nc-row">
+                        <span class="nc-label">DRIVER</span>
+                        <span class="nc-val">Driver Assigned</span>
+                    </div>
+                    <div class="nc-row">
+                        <span class="nc-label">PHONE</span>
+                        <span class="nc-val link-blue">+91 99999 99999</span>
+                    </div>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">VEHICLE METRICS</h5>
+                    <div class="metric-row">
+                        <div class="metric-info">
+                            <span class="nc-label">FUEL LEVEL</span>
+                            <span class="metric-val green">98%</span>
+                        </div>
+                        <div class="progress-bar"><div class="fill green" style="width: 98%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- HOSPITAL GRID (Hidden Initially) -->
+        <div id="hospitals-grid" class="nearby-grid search-content" style="display: none;">
+            
+            <!-- Hospital 1 -->
+            <div class="nearby-card hospital-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>Ganga Hospital</h3>
+                        <p>Velachery</p>
+                    </div>
+                    <span class="badge confirmed">OPEN</span>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">ADDRESS</h5>
+                    <p class="hospital-address">254W+WCW, AL Mudaliar Street, Thandavaraya, Velachery, mubali</p>
+                    <div class="nc-row mt-10">
+                        <button class="btn-action btn-outline-sm"><i class="fa-solid fa-diamond-turn-right"></i> Directions</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospital 2 -->
+            <div class="nearby-card hospital-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>St Thomas Hospital</h3>
+                        <p>St.Thomas Mount</p>
+                    </div>
+                    <span class="badge confirmed">OPEN</span>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">ADDRESS</h5>
+                    <p class="hospital-address">5/105, Defence Colony 1st Avenue, Chennai</p>
+                    <div class="nc-row mt-10">
+                        <button class="btn-action btn-outline-sm"><i class="fa-solid fa-diamond-turn-right"></i> Directions</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospital 3 -->
+            <div class="nearby-card hospital-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>Sri Sakthi Mother & Child</h3>
+                        <p>Alandur</p>
+                    </div>
+                    <span class="badge confirmed">OPEN</span>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">ADDRESS</h5>
+                    <p class="hospital-address">223/121A, MKN Mela Ilandaikulam, Alandur Market Lane, Chennai</p>
+                    <div class="nc-row mt-10">
+                        <button class="btn-action btn-outline-sm"><i class="fa-solid fa-diamond-turn-right"></i> Directions</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospital 4 -->
+            <div class="nearby-card hospital-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>Elvita</h3>
+                        <p>Saidapet</p>
+                    </div>
+                    <span class="badge confirmed">OPEN</span>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">ADDRESS</h5>
+                    <p class="hospital-address">2699+Q9P, Hospital Road, Saidapet, Chennai</p>
+                    <div class="nc-row mt-10">
+                        <button class="btn-action btn-outline-sm"><i class="fa-solid fa-diamond-turn-right"></i> Directions</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospital 5 -->
+            <div class="nearby-card hospital-card">
+                <div class="nc-header">
+                    <div class="nc-title-group">
+                        <h3>MIOT International</h3>
+                        <p>Manapakkam</p>
+                    </div>
+                    <span class="badge confirmed">OPEN</span>
+                </div>
+                <div class="nc-section no-border">
+                    <h5 class="nc-heading">ADDRESS</h5>
+                    <p class="hospital-address">4/112, Mount Poonamallee Road, Sathya Nagar, Manapakkam, Chennai</p>
+                    <div class="nc-row mt-10">
+                        <button class="btn-action btn-outline-sm"><i class="fa-solid fa-diamond-turn-right"></i> Directions</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Layout Script -->
+    <script src="layout.js"></script>
+    
+    <!-- Tab Logic -->
+    <script>
+        function switchSearchTab(type) {
+            // Update Buttons
+            const buttons = document.querySelectorAll('.search-tab');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Hide all Grids
+            document.querySelectorAll('.search-content').forEach(el => el.style.display = 'none');
+
+            // Show selected Grid
+            if(type === 'ambulances') {
+                document.getElementById('ambulances-grid').style.display = 'grid';
+            } else {
+                document.getElementById('hospitals-grid').style.display = 'grid';
+            }
+        }
+    </script>
+</body>
+</html>
